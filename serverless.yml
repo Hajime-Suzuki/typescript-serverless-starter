@@ -1,0 +1,27 @@
+service: my-service
+
+provider:
+  region: 'eu-central-1'
+  name: aws
+  runtime: nodejs10.x
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    port: 4000
+
+  webpack:
+    includeModules:
+      forceExclude:
+        - aws-sdk
+
+functions:
+  main:
+    handler: src/main.handler
+    events:
+      - http:
+          path: /
+          method: get

@@ -1,0 +1,36 @@
+{
+  "name": "typescript-serverless-starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Hajime-Suzuki/typescript-serverless-starter.git",
+  "author": "Hajime-Suzuki <hajime.doublebass@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "yarn sls deploy",
+    "dev": "yarn sls offline start",
+    "test:watch": "yarn jest --watch --runInBand"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.34",
+    "@types/jest": "^24.0.20",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
+    "aws-sdk": "^2.556.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "fork-ts-checker-webpack-plugin": "^2.0.0",
+    "jest": "^24.9.0",
+    "prettier": "^1.18.2",
+    "serverless": "^1.55.1",
+    "serverless-offline": "^5.12.0",
+    "serverless-pseudo-parameters": "^2.5.0",
+    "serverless-webpack": "^5.3.1",
+    "ts-jest": "^24.1.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.2",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "dependencies": {}
+}
