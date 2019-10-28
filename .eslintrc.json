@@ -5,7 +5,7 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "prettier/@typescript-eslint"
   ],
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "prettier"],
   "parser": "@typescript-eslint/parser",
   "env": { "node": true, "es6": true },
   "parserOptions": {
@@ -13,7 +13,7 @@
   },
   "rules": {
     "@typescript-eslint/no-unused-vars": [
-      "error",
+      "warn",
       { "argsIgnorePattern": "^_" }
     ],
     "@typescript-eslint/no-explicit-any": "off",
@@ -25,27 +25,17 @@
     "@typescript-eslint/no-var-requires": "error",
     "@typescript-eslint/quotes": "off",
     "object-shorthand": "error",
-    "object-curly-spacing": ["error", "always"],
-    "object-curly-newline": [
-      "error",
-      {
-        "ObjectExpression": { "multiline": true, "minProperties": 3 },
-        "ObjectPattern": { "multiline": true, "minProperties": 3 },
-        "ImportDeclaration": "never",
-        "ExportDeclaration": { "multiline": true, "minProperties": 3 }
-      }
-    ],
-    "array-bracket-spacing": ["error", "always"],
-    "comma-dangle": [
+    "prettier/prettier": [
       "warn",
       {
-        "arrays": "always-multiline",
-        "objects": "always-multiline",
-        "imports": "never",
-        "exports": "always-multiline",
-        "functions": "always-multiline"
+        "singleQuote": true,
+        "semi": false,
+        "bracketSpacing": true,
+        "printWidth": 100,
+        "tabWidth": 2,
+        "useTabs": false,
+        "trailingComma": "all"
       }
-    ],
-    "max-len": ["error", { "code": 100 }]
+    ]
   }
 }

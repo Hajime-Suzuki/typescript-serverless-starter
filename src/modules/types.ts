@@ -11,8 +11,6 @@ export type GatewayEvent<
   APIGatewayEvent,
   {
     body: TBody
-    pathParameters: TParamsKey extends string
-      ? Record<TParamsKey, string>
-      : null
+    pathParameters: TParamsKey extends string ? Record<TParamsKey, string> : null
   }
 >
