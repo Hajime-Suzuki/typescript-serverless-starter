@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path')
 const slsw = require('serverless-webpack')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
@@ -9,13 +10,13 @@ module.exports = {
   resolve: {
     extensions: ['.json', '.ts'],
     alias: {
-      '@modules': path.resolve(__dirname, './src/modules')
-    }
+      '@modules': path.resolve(__dirname, './src/modules'),
+    },
   },
   output: {
     libraryTarget: 'commonjs',
     path: path.join(__dirname, '.webpack'),
-    filename: '[name].js'
+    filename: '[name].js',
   },
   externals: [nodeExternals()],
   target: 'node',
@@ -24,13 +25,14 @@ module.exports = {
       {
         test: /\.ts$/,
         loader: 'ts-loader',
-        options: { transpileOnly: true }
-      }
-    ]
+        options: { transpileOnly: true, configFile: 'tsconfig.json' },
+      },
+    ],
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin({
-      async: true
-    })
-  ]
+      async: true,
+      eslint: true,
+    }),
+  ],
 }

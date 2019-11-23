@@ -1,13 +1,15 @@
 service: my-service
 
-provider:
-  region: 'eu-central-1'
-  name: aws
-  runtime: nodejs10.x
+functions: ${file(./resources/functions.yml)}
+resources: ${file(./resources/resources.yml)}
 
-plugins:
-  - serverless-webpack
-  - serverless-offline
+provider:
+  name: aws
+  region: 'eu-central-1'
+  stage: ${opt:stage, 'dev'}
+  runtime: nodejs10.x
+  environment:
+    test: test
 
 custom:
   serverless-offline:
@@ -18,10 +20,9 @@ custom:
       forceExclude:
         - aws-sdk
 
-functions:
-  main:
-    handler: src/main.handler
-    events:
-      - http:
-          path: /
-          method: get
+package:
+  individually: true
+
+plugins:
+  - serverless-webpack
+  - serverless-offline

@@ -6,7 +6,8 @@
   "author": "Hajime-Suzuki <hajime.doublebass@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "deploy": "yarn sls deploy",
+    "deploy:dev": "yarn sls deploy --stage dev",
+    "deploy:prod": "yarn sls deploy --stage prod",
     "dev": "yarn sls offline start",
     "test:watch": "yarn jest --watch --runInBand"
   },
