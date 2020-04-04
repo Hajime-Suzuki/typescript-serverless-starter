@@ -18,7 +18,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "eslint -c .eslintrc.pre-commit.js",
+      "eslint",
       "jest --passWithNoTests"
     ]
   },
