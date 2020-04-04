@@ -11,27 +11,40 @@
     "dev": "yarn sls offline start",
     "test:watch": "yarn jest --watch --runInBand"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint -c .eslintrc.pre-commit.js",
+      "jest --passWithNoTests"
+    ]
+  },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.44",
-    "@types/jest": "^25.1.3",
-    "@types/node": "^13.7.6",
-    "@typescript-eslint/eslint-plugin": "^2.21.0",
-    "@typescript-eslint/parser": "^2.21.0",
-    "aws-sdk": "^2.628.0",
+    "@types/aws-lambda": "^8.10.47",
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.11.0",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "aws-sdk": "^2.653.0",
     "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
-    "fork-ts-checker-webpack-plugin": "^4.0.5",
-    "jest": "^25.1.0",
-    "prettier": "^1.19.1",
-    "serverless": "^1.64.1",
-    "serverless-offline": "^5.12.1",
+    "fork-ts-checker-webpack-plugin": "^4.1.2",
+    "husky": "^4.2.3",
+    "jest": "^25.2.7",
+    "lint-staged": "^10.1.1",
+    "prettier": "^2.0.2",
+    "serverless": "^1.67.0",
+    "serverless-offline": "^6.1.4",
     "serverless-pseudo-parameters": "^2.5.0",
     "serverless-webpack": "^5.3.1",
-    "ts-jest": "^25.2.1",
-    "ts-loader": "^6.2.1",
-    "typescript": "^3.8.2",
-    "webpack": "^4.41.6",
+    "ts-jest": "^25.3.1",
+    "ts-loader": "^6.2.2",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {}
