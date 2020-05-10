@@ -1,14 +1,26 @@
-import { GatewayEvent } from '@modules/types'
-import { APIGatewayProxyResult, Context } from 'aws-lambda'
-import { logger } from '@modules/module'
+import { parseEvent } from '@modules/api-gateway/parse-event'
+import { APIGatewayEvent, APIGatewayProxyResult, Context } from 'aws-lambda'
+
+type Body = { data: string }
+type PathParams = 'userId'
+type QueryParams = 'query'
 
 export const handler = async (
-  event: GatewayEvent<{}>,
+  event: APIGatewayEvent,
   _: Context,
 ): Promise<APIGatewayProxyResult> => {
-  logger.info('main.handler')
+  const parsed = parseEvent<Body, PathParams, QueryParams>(event)
+
+  console.log(parsed.body)
+  console.log(parsed.pathParameters.userId)
+  console.log(parsed.queryStringParameters.query)
+
   return {
     statusCode: 200,
-    body: JSON.stringify({ message: event }),
+    body: JSON.stringify({
+      body: parsed.body,
+      path: parsed.pathParameters,
+      parsed: parsed.queryStringParameters,
+    }),
   }
 }
