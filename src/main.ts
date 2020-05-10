@@ -9,6 +9,6 @@ export const handler = async (
   logger.info('main.handler')
   return {
     statusCode: 200,
-    body: JSON.stringify({ event }),
+    body: JSON.stringify({ message: event }),
   }
 }
