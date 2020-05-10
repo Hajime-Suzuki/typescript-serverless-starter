@@ -13,7 +13,8 @@ provider:
 
 custom:
   serverless-offline:
-    port: 4000
+    httpPort: 4000
+    useChildProcesses: true
 
   webpack:
     includeModules:
