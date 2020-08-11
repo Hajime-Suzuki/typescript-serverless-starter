@@ -23,6 +23,7 @@ custom:
 
 package:
   individually: true
+  packager: 'yarn' # needed to install npm private packages
 
 plugins:
   - serverless-webpack
