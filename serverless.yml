@@ -1,7 +1,7 @@
 service: my-service
 
 functions: ${file(./resources/functions.yml)}
-resources: ${file(./resources/resources.yml)}
+# resources: ${file(./resources/resources.yml)}
 
 provider:
   name: aws
@@ -14,7 +14,6 @@ provider:
 custom:
   serverless-offline:
     httpPort: 4000
-    useChildProcesses: true
 
   webpack:
     includeModules:
@@ -23,7 +22,6 @@ custom:
 
 package:
   individually: true
-  packager: 'yarn' # needed to install npm private packages
 
 plugins:
   - serverless-webpack

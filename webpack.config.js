@@ -32,7 +32,10 @@ module.exports = {
   plugins: [
     new ForkTsCheckerWebpackPlugin({
       async: true,
-      eslint: true,
+      eslint: {
+        enabled: true,
+        files: './src/**/*.{ts,tsx}'
+      }
     }),
   ],
 }
