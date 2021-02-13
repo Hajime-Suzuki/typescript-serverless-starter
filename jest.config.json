@@ -1,5 +1,7 @@
 {
-  "preset": "ts-jest",
+  "transform": {
+    "^.+\\.tsx?$": "esbuild-jest"
+  },
   "testEnvironment": "node",
   "resetMocks": true,
   "testMatch": ["**/__tests__/**/*.test.ts"],
