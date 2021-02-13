@@ -106,4 +106,4 @@ dist
 .serverless
 .webpack
 **/*.http
-.build/
+build/
