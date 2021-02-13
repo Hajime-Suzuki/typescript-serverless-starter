@@ -7,9 +7,12 @@ provider:
   name: aws
   region: 'eu-central-1'
   stage: ${opt:stage, 'dev'}
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   environment:
     test: test
+  apiGateway:
+    shouldStartNameWithService: true
+  lambdaHashingVersion: 20201221
 
 custom:
   serverless-offline:
