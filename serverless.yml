@@ -19,6 +19,8 @@ custom:
     httpPort: 4000
 
   webpack:
+    packager: yarn
+    webpackConfig: webpack.config.ts
     includeModules:
       forceExclude:
         - aws-sdk

@@ -1,10 +1,10 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path')
-const slsw = require('serverless-webpack')
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const nodeExternals = require('webpack-node-externals')
+import path from 'path'
+import slsw from 'serverless-webpack'
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
+import nodeExternals from 'webpack-node-externals'
+import { Configuration } from 'webpack'
 
-module.exports = {
+const config: Configuration = {
   mode: slsw.lib.webpack.isLocal ? 'development' : 'production',
   entry: slsw.lib.entries,
   resolve: {
@@ -34,8 +34,10 @@ module.exports = {
       async: true,
       eslint: {
         enabled: true,
-        files: './src/**/*.{ts,tsx}'
-      }
+        files: './src/**/*.{ts,tsx}',
+      },
     }),
   ],
 }
+
+module.exports = config
