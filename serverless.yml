@@ -7,7 +7,7 @@ provider:
   name: aws
   region: 'eu-central-1'
   stage: ${opt:stage, 'dev'}
-  runtime: nodejs14.x
+  runtime: nodejs12.x
   environment:
     test: test
   apiGateway:
