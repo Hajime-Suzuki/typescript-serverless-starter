@@ -1,10 +1,9 @@
-import path from 'path'
-import slsw from 'serverless-webpack'
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
-import nodeExternals from 'webpack-node-externals'
-import { Configuration } from 'webpack'
+const path = require('path')
+const slsw = require('serverless-webpack')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const nodeExternals = require('webpack-node-externals')
 
-const config: Configuration = {
+const config = {
   mode: slsw.lib.webpack.isLocal ? 'development' : 'production',
   entry: slsw.lib.entries,
   resolve: {
@@ -32,10 +31,6 @@ const config: Configuration = {
   plugins: [
     new ForkTsCheckerWebpackPlugin({
       async: true,
-      eslint: {
-        enabled: true,
-        files: './src/**/*.{ts,tsx}',
-      },
     }),
   ],
 }
